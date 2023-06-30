@@ -1,30 +1,19 @@
 #include "main.h"
 
 /**
- * _printf - Produces output according to a format
- * @format: Is a character string. The format string
- * is composed of zero or more directives
+ * print_string - Print string
+ * @list: list.
  *
- * Return: The number of characters printed (excluding
- * the null byte used to end output to strings)
- **/
-int _printf(const char *format, ...)
+ * Return: String length.
+ */
+
+int print_string(va_list list)
 {
-    int size;
-    va_list args;
+    char *p;
+    int p_len;
 
-    if (format == NULL)
-        return (-1);
+    p = va_arg(list, char *);
+    p_len = print((p != NULL) ? p : "(null)");
 
-    size = _strlen(format);
-    if (size <= 0)
-        return (0);
-
-    va_start(args, format);
-    size = handler(format, args);
-
-    _putchar(-1);
-    va_end(args);
-
-    return (size);
+    return (p_len);
 }
