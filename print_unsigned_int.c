@@ -1,23 +1,19 @@
 #include "main.h"
-/**
- * print_unt - print unsigned integers
- * @n: int
- *
- * Return: int
- */
-int print_unt(unsigned int n)
-{
-    unsigned int a = n;
-    int i = 0;
 
-    if (n <= 0)
-        return (-1);
-    if (n)
-    {
-        if ((a / 10) > 0)
-            i += print_unt(a / 10);
-        _putchar((a % 10) + '0');
-        i++;
-    }
-    return (i);
+/**
+ * print_unsigned - Print a unsigned int
+ * @list: Number to print
+ *
+ * Return: Length of the number
+ **/
+int print_unsigned_int(va_list list)
+{
+    char *p_buff;
+    int size;
+
+    p_buff = itoa(va_arg(list, unsigned int), 10);
+
+    size = print((p_buff != NULL) ? p_buff : "NULL");
+
+    return (size);
 }

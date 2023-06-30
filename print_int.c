@@ -1,29 +1,19 @@
 #include "main.h"
-/**
- * print_int - print int numbers
- * @n: integer number
- *
- * Return: bytes
- */
-int print_int(int n)
-{
-    int a = n;
-    int i = 0;
 
-    if (n)
-    {
-        if (n < 0)
-        {
-            i += _putchar('-');
-            a = -a;
-        }
-        if ((a / 10) > 0)
-            i += print_int(a / 10);
-        i += _putchar((a % 10) + '0');
-    }
-    else
-    {
-        i += _putchar(n + '0');
-    }
-    return (i);
+/**
+ * print_integer - Print a number in base 10
+ * @list: Number to print in base 10
+ *
+ * Return: Length of th numbers in decimal
+ **/
+int print_int(va_list list)
+{
+    char *p_buff;
+    int size;
+
+    p_buff = itoa(va_arg(list, int), 10);
+
+    size = print((p_buff != NULL) ? p_buff : "NULL");
+
+    return (size);
 }

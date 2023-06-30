@@ -1,25 +1,19 @@
 #include "main.h"
-/**
- * print_oct - converts decimal to octal and prints
- * @n: int
- *
- * Return: bytes
- */
-int print_oct(unsigned int n)
-{
-    int count = 0;
 
-    if (n)
-    {
-        if (n >= 1)
-        {
-            count += print_oct(n / 8);
-            count += _putchar((n % 8) + '0');
-        }
-        else
-        {
-            return (-1);
-        }
-    }
-    return (count);
+/**
+ * print_octal - Print a unsigned octal
+ * @list: Number to print
+ *
+ * Return: Length of the number
+ **/
+int print_octal(va_list list)
+{
+    char *p_buff;
+    int size;
+
+    p_buff = itoa(va_arg(list, unsigned int), 8);
+
+    size = print((p_buff != NULL) ? p_buff : "NULL");
+
+    return (size);
 }
