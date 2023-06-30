@@ -1,24 +1,19 @@
 #include "main.h"
-#include <stddef.h>
-/**
- * print_str - prints string
- * @c: pointer to string
- * Return: count of printed chars
- */
-int print_str(char *c)
-{
-    int i = 0;
 
-    if (c == NULL)
-    {
-        c = "(null)";
-    }
-    if (c)
-    {
-        for (; *(c + i) != '\0'; i++)
-        {
-            _putchar(*(c + i));
-        }
-    }
-    return (i);
+/**
+ * print_string - Print string
+ * @list: list.
+ *
+ * Return: String length.
+ */
+
+int print_string(va_list list)
+{
+    char *p;
+    int p_len;
+
+    p = va_arg(list, char *);
+    p_len = print((p != NULL) ? p : "(null)");
+
+    return (p_len);
 }

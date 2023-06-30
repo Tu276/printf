@@ -1,32 +1,53 @@
 #include "main.h"
-/**
- * print_hex - print hexadecimal equivalent of decimal
- * @n: number to be converted
- *
- * Return: number of bytes
- */
-int print_hex(unsigned int n)
-{
-    int count = 0;
 
-    if (n)
+int is_lowercase(char);
+char *string_to_upper(char *);
+
+/**
+ * print_hexadecimal - Print a number in hexadecimal format
+ * @list: Number to print
+ *
+ * Return: Length of the number
+ **/
+int print_hex(va_list list)
+{
+    char *p_buff;
+    int size;
+
+    p_buff = itoa(va_arg(list, unsigned int), 16);
+    p_buff = string_to_upper(p_buff);
+
+    size = print((p_buff != NULL) ? p_buff : "NULL");
+
+    return (size);
+}
+
+/**
+ * is_lowercase - Check if the character are in lowercase
+ * @c: Character
+ * Return: 1 or 0
+ **/
+int is_lowercase(char c)
+{
+    return (c >= 'a' && c <= 'z');
+}
+
+/**
+ * string_to_upper - Change the string to uppercase
+ * @s: String
+ * Return: String uppercase
+ **/
+char *string_to_upper(char *s)
+{
+    int i;
+
+    for (i = 0; s[i] != '\0'; i++)
     {
-        if (n >= 1)
+        if (is_lowercase(s[i]))
         {
-            count += print_hex(n / 16);
-            if ((n % 16) > 9 && (n % 16) < 16)
-            {
-                count += _putchar((n % 16) + 55);
-            }
-            else
-            {
-                count += _putchar((n % 16) + '0');
-            }
-        }
-        else
-        {
-            return (-1);
+            s[i] = s[i] - 32;
         }
     }
-    return (count);
+
+    return (s);
 }
