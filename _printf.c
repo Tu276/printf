@@ -7,7 +7,6 @@
  * determine which printing function to call depending on the conversion
  * specifiers contained into fmt
  * Return: length of the formatted output string
- * Authors: Ehoneah Obed & Abdulhakeem Badejo
  */
 int _printf(const char *format, ...)
 {
@@ -37,9 +36,10 @@ int _printf(const char *format, ...)
 				p++;
 			pfunc = get_print(*p);
 			count += (pfunc)
-				? pfunc(arguments, &flags)
-				: _printf("%%%c", *p);
-		} else
+						 ? pfunc(arguments, &flags)
+						 : _printf("%%%c", *p);
+		}
+		else
 			count += _putchar(*p);
 	}
 	_putchar(-1);
