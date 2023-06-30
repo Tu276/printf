@@ -59,7 +59,7 @@ _printf("This is a string");
 _printf("%s\n", "I am a string too!");
 
 .IP print char.
-_printf("Character:[%c]\n", 'H');
+_printf("Charac ter:[%c]\n", 'H');
 
 .IP -print integuer.
 _printf("%d, %i\n", 2, 5);
