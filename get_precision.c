@@ -7,7 +7,10 @@
  * @list: list of arguments.
  *
  * Return: Precision.
+ *
+ * Description: This function calculates the precision for printing.
  */
+
 int get_precision(const char *format, int *i, va_list list)
 {
 	int curr_i = *i + 1;
